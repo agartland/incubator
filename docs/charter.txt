@@ -1,0 +1,54 @@
+Vision
+
+Mammalian genome projects, including the Human Genome Project, are fundamentally incomplete. Gaps in genome assemblies occur in repetitive sequences including centromeres, which are loci found on each chromosome that function to ensure proper partitioning of genetic material at each cell division. Despite the central biological function of centromeres and their implication in a wide range of human diseases, their genomic sequence organization is unknown. Conventional assembly algorithms, which seek to piece together a genome from fragments produced by a DNA sequencing instrument, cannot resolve repetitive regions. I propose to develop approaches that may aid in assembly of gaps in genomes by exploiting the structure and spatial information contained within some repetitive regions including centromeres.
+
+Single-molecule real-time (SMRT) sequencing generates long (~10 kb average length), but noisy sequences that can be used to gain insights into the structure and organization of repetitive regions such as centromeres. I have developed an approach for generating two-dimensional representations (2DRs) of SMRT data from centromeric regions of the human genome. These 2DRs provide an opportunity for using information related to DNA sequence to augment traditional sequence assembly approaches. There are a number of challenges with SMRT data and the strategy for analyzing these datasets that I propose to address during Winter 2016. These include: (1) Dealing with the intrinsically high error rate of SMRT sequencing, (2) optimizing the approach for generating 2DRs and quantifying interesting features for 2DRs, and (3) clustering 2DRs based on some metric of similarity.
+
+Objectives
+
+In the context of these three key challenges, the following are major objectives for the Winter 2016 Quarter.
+
+Develop fluency with Python for reading/parsing, processing and analyzing, and visualizing two-dimensional data (images or matrices) and object-oriented programming. Specifically, I would like to continue exploring methods from image and time-frequency analysis and gain experience with machine learning approaches in Python.
+
+Create a Python package for 2DR generation. The current algorithm for converting DNA sequences into 2DRs is implemented in C++ and lacks a number of features including spectral analysis of 2DRs. Building on fluency with Python, I will create a Python package that implements the sequence to 2DR conversion algorithm.
+
+Cluster 2DRs. The major component of a 2DR-guided assembly process for repetitive genomic regions involves clustering 2DRs based on similarity. Relatedly, independent of the assembly problem, clusters of similar 2DRs can be used to error correct noisy single-molecule reads through a multiple alignment procedure.
+
+In addition to these major objectives, I would like to learn about image overlap detection and assembly algorithms.
+
+Success criteria
+
+The following criteria will be used to ascertain whether the stated objectives have been achieved.
+
+Develop fluency with Python. 
+Develop familiarity with Python and coding convention (‘pythonizing’) by implementing simple, commonly used algorithms in bioinformatics (intersecting genomic intervals and pairwise sequence alignment).
+Learn about and use commonly used packages for scientific computing with Python including NumPy, SciPy, Biopython, Pandas, matplotlib, scikit-learn, scikit-image, and scikit-bio.
+Using previously generated 2DRs, explore of methods for image and spectral analysis of 2DRs. E.g., SciPy provides functions for performing continuous wavelet transforms.
+
+Create a Python package for 2DR generation.
+Re-implement existing C++ code for 2DR generation using Python.
+Add new features for periodicity detecting using time-frequency methods
+Implement approaches for quantitative description of 2DRs (e.g., entropy, contrast, etc.)
+Use git/Github throughout the development of the package in order to gain familiarity with version control
+Make a documented, unit-tested package for 2DR generation available on Github
+
+Cluster 2DRs.
+Develop an approach for low-dimensional representation of 2DRs (one-dimensional feature vector).
+Explore different approaches for clustering: supervised vs. unsupervised vs. semi-supervised; one- vs. two-dimensional, image clustering
+Implement an approach for clustering sequences and/or their 2DRs.
+Test approach for clustering and assembly on simulated centromeres, using the ground-truth linear ordering to evaluate success of algorithm.
+Test approach for clustering on real SMRT data and use simple (and rapid) pairwise alignment for initial tests of success. If this is initial test is successful, perform assembly of clusters using an assembler such as Celera or MHAP.
+
+
+Schedule
+
+Weeks 1-3: Learn Python, convert code, make package, and put up on Github. Testing?
+Weeks 4-9: Clustering
+
+	Read about image clustering
+	What image characteristics should be used for clustering?
+	How best to come up with a low-dimensional representation of images?
+		(Are we going to read all of these matrices/images into memory for the clustering step?)
+	Is the clustering problem really a compression problem? How lossy is the compression?	
+
+Week 10: Put things together
